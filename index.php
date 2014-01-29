@@ -22,12 +22,10 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oau
 /* If method is set change API call made. Test is called by default. */
 $content = $connection->get('account/verify_credentials');
 
-/* Some example calls */
-//$connection->get('users/show', array('screen_name' => 'abraham'));
-//$connection->post('statuses/update', array('status' => date(DATE_RFC822)));
-//$connection->post('statuses/destroy', array('id' => 5437877770));
-//$connection->post('friendships/create', array('id' => 9436992));
-//$connection->post('friendships/destroy', array('id' => 9436992));
+	$tweets = $connection->get("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=".$twitteruser."&count=".$notweets);
+	$name = $content->{'name'}; 
+	$id = $content->{'id'}; 
+
 
 /* Include HTML to display on the page */
-include('html.inc');
+//include('html.inc');
